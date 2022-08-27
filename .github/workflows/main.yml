@@ -8,9 +8,6 @@ on:
 #  pull_request:
 #    branches: [ main ]
  
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
- 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "SFTP"
@@ -34,5 +31,3 @@ jobs:
           # files will copy to under remote_path
           remote_path: /home/br789
           
-          # sftp args
-          args: '-o ConnectTimeout=5'
