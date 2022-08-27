@@ -21,8 +21,7 @@ jobs:
       - uses: rkumarpanchani/test-git-repo@master
 
       - name: SFTP Deploy
-        #uses: wlixcc/SFTP-Deploy-Action@v1.2.1
-        #uses: actions/checkout@v1  
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
         with:
           username: br789
           server: 172.19.115.33
