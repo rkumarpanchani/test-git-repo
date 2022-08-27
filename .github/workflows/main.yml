@@ -15,13 +15,14 @@ on:
 jobs:
   # This workflow contains a single job called "SFTP"
   deploy-via-sftp:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: rkumarpanchani/test-git-repo@master
 
       - name: SFTP Deploy
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+        #uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+        uses: actions/checkout@v1  
         with:
           username: br789
           server: 172.19.115.33/20
@@ -37,3 +38,5 @@ jobs:
 
           # sftp args
           args: '-o ConnectTimeout=5'
+
+          # Checkout the repo - uses: actions/checkout@v3 with: # Repository name with owner. For example, actions/checkout Default: ${{ github.repository }}
