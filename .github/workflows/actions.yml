@@ -1,0 +1,17 @@
+name: Actions Workflow 
+
+on: [push]
+
+#https://github.com/actions/hello-world-javascript-action (Iss website mein input and output hai - JS Code)
+jobs: 
+  run-github-actions: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action #want to use JS
+        id: greet #yhe hum ko next step mein kaam aayegaa, abhi koi kaam nhi 
+        uses: actions/hello-world-javascript-action@v1 #v1, mene version specify kra yahan, hum branch bhi krsaktye thy, lekin branch mein different versions hotye hain better use version of code
+        with: 
+          who-to-greet: John #this is the input 
+
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}" #this is the output, steps upar wala hai, greet id yahan use kri, then outputs, then time. 
