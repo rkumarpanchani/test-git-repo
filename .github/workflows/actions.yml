@@ -1,20 +1,18 @@
 name: Actions Workflow 
 
 on:
-  push:
+  push: #create new branch e.g. dev branch - git checkout dev
   pull_request:
     types: [closed, assigned, opened, reopened]
 
-#https://github.com/actions/hello-world-javascript-action (Iss website mein input and output hai - JS Code)
 jobs: 
   run-github-actions: 
     runs-on: ubuntu-latest
     steps:
-      - name: playload #this is the variable kuch bhi dye du
+      - name: playload 
         run: echo ${{ github.event.client_payload.env }}
 
-      - name: List Files #this is the variable kuch bhi dye du
-        #yhe run mein kuch echo hain yhe bhi repo ki infos deti hain  
+      - name: List Files
         run: |
           pwd
           ls -a  
@@ -25,18 +23,18 @@ jobs:
           # git clone git@github:$GITHUB_REPOSITORY
           # git checkout $GITHUB_SHA
         
-      - name: Checkout #this is the variable kuch bhi dye d
-        uses: actions/checkout@v1 #action user hai aur uss ki repo checkoit hai aur uss kaa code version 1 uthao 
-      - name: List Files After Checkout #this is the variable kuch bhi dye du
-        run: | #will list the files within actions/checkout@v1 repo
+      - name: Checkout 
+        uses: actions/checkout@v1  
+      - name: List Files After Checkout 
+        run: | 
           pwd 
           ls -a
 
-      - name: Simple JS Action #this is the variable kuch bhi dye du
+      - name: Simple JS Action
         id: greet 
         uses: actions/hello-world-javascript-action@v1
         with: 
           who-to-greet: John
 
-      - name: Log Greeting Time  #this is the variable kuch bhi dye du
+      - name: Log Greeting Time 
         run: echo "${{ steps.greet.outputs.time }}"
