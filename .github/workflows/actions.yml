@@ -7,11 +7,33 @@ jobs:
   run-github-actions: 
     runs-on: ubuntu-latest
     steps:
-      - name: Simple JS Action #want to use JS
-        id: greet #yhe hum ko next step mein kaam aayegaa, abhi koi kaam nhi 
-        uses: actions/hello-world-javascript-action@v1 #v1, mene version specify kra yahan, hum branch bhi krsaktye thy, lekin branch mein different versions hotye hain better use version of code
-        with: 
-          who-to-greet: John #this is the input 
+      - name: playload #this is the variable kuch bhi dye du
+        run: echo ${{ github.event.client_payload.env }}
 
-      - name: Log Greeting Time
-        run: echo "${{ steps.greet.outputs.time }}" #this is the output, steps upar wala hai, greet id yahan use kri, then outputs, then time. 
+      - name: List Files #this is the variable kuch bhi dye du
+        #yhe run mein kuch echo hain yhe bhi repo ki infos deti hain  
+        run: |
+          pwd
+          ls -a  
+          echo $GITHUB_SHA 
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"
+          # git clone git@github:$GITHUB_REPOSITORY
+          # git checkout $GITHUB_SHA
+        
+      - name: Checkout #this is the variable kuch bhi dye d
+        uses: actions/checkout@v1 #action user hai aur uss ki repo checkoit hai aur uss kaa code version 1 uthao 
+      - name: List Files After Checkout #this is the variable kuch bhi dye du
+        run: | #will list the files within actions/checkout@v1 repo
+          pwd 
+          ls -a
+
+      - name: Simple JS Action #this is the variable kuch bhi dye du
+        id: greet 
+        uses: actions/hello-world-javascript-action@v1
+        with: 
+          who-to-greet: John
+
+      - name: Log Greeting Time  #this is the variable kuch bhi dye du
+        run: echo "${{ steps.greet.outputs.time }}"
