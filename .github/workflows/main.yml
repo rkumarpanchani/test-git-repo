@@ -27,12 +27,13 @@ jobs:
           server: 172.19.115.33/20
           port: 22 # default is 22
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
- 
+   
           
           # will put all file under this path
           local_path: /test-git-repo/.github/workflows/env.yml # default is ./*
           # files will copy to under remote_path
           remote_path: /home/br789
           
+
           # sftp args
           args: '-o ConnectTimeout=5'
