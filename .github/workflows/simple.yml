@@ -5,14 +5,28 @@ on:
   push:
     branches: [ "master" ] #this is the event, kuch bhi dye du e.g. push code, pull code, etc
 
-#now we have to define jobs 
-jobs: 
+jobs:
   run-shell-command:
-    runs-on: ubuntu-latest #apna system konsa hai
-    steps: #steps to be executed, abhi array ki form mein likh rehye hain 
-      - name: echo a string # array with 2 or u can write with 4 spaces. 
-        run: echo "Hello World" # use action or run, we will see action later
+    runs-on: ubuntu-latest # ubuntu sye linux ki commands accept krye gaa 
+    steps: 
+      - name: echo a string
+        run: echo "Hello World"
       - name: multiline script 
-        run: | #to run multiple commands use pipe, in backend hamesha new line create krta hai yhe pipe
+        run: |
            node -v 
            npm -v
+      - name: python Command # will accpet python  
+        run: | # kya krna chatye ho logic likho 
+          import platform 
+          print(platform.processor())
+        shell: python # using python shell 
+  
+  run-windwos-commands:
+    runs-on: windows-latest # now windows ki commands accept krye gaa 
+    needs: ["run-shell-command"] #mene bola phelye upar wali job chalye phir yhe wali job chalye 
+    steps:
+      - name: Directory PowerShell # will accept Powershell 
+        run: Get-Location # getting location using powershell 
+      - name: Directory Bash # hum n kha bash use kra on windows 
+        run: pwd #will return current path 
+        shell: bash # shell specify krna lazmi hai so bash hum ko pwd return krye gaa
