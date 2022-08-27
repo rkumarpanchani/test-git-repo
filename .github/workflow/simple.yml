@@ -1,0 +1,15 @@
+name: Shell Command # this is workflow name kuch bhi dye du
+
+on: [push] #this is the event, kuch bhi dye du e.g. push code, pull code, etc
+
+#now we have to define jobs 
+jobs: 
+  run-shell-command:
+    runs-on: ubuntu-latest #apna system konsa hai
+    steps: #steps to be executed, abhi array ki form mein likh rehye hain 
+      - name: echo a string # array with 2 or u can write with 4 spaces. 
+        run: echo "Hello World" # use action or run, we will see action later
+      - name: multiline script 
+        run: | #to run multiple commands use pipe, in backend hamesha new line create krta hai yhe pipe
+           node -v 
+           npm -v
