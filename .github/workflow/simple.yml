@@ -1,6 +1,9 @@
 name: Shell Command # this is workflow name kuch bhi dye du
 
-on: [push] #this is the event, kuch bhi dye du e.g. push code, pull code, etc
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ] #this is the event, kuch bhi dye du e.g. push code, pull code, etc
 
 #now we have to define jobs 
 jobs: 
