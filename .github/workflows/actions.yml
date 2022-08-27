@@ -1,7 +1,7 @@
 name: Actions Workflow 
 
 on:
-  push: #create new branch e.g. dev branch - git checkout dev
+  push: #create new branch e.g. dev branch - git checkout -b dev
   pull_request:
     types: [closed, assigned, opened, reopened]
 
@@ -22,7 +22,8 @@ jobs:
           echo "${{ github.token }}"
           # git clone git@github:$GITHUB_REPOSITORY
           # git checkout $GITHUB_SHA
-        
+          #etc 
+
       - name: Checkout 
         uses: actions/checkout@v1  
       - name: List Files After Checkout 
