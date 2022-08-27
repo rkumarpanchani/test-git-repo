@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v1  
         with:
           username: br789
-          server: 172.19.115.33/20
+          server: 172.19.115.33
           port: 22 # default is 22
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
    
