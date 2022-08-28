@@ -23,7 +23,7 @@ jobs:
       - name: SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@v1.2.1
         with:
-          host: 172.19.115.33
+          host: Ranesh
           username: br789
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
