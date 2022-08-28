@@ -27,12 +27,11 @@ jobs:
           port: 22 # default is 22 :)
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
    
-          
           # will put all file under this pathh 
           local_path: ./* #./test-git-repo/.github/workflows/env.yml # default is ./*
           # files will copy to under remote_path
           remote_path: /home/br789
           
           # sftp args
-          args: echo welcome Ramesh  
+          args: '-o ConnectTimeout=5'
           # Checkout the repo - uses: actions/checkout@v3 with: # Repository name with owner. For example, actions/checkout Default: ${{ github.repository }}
