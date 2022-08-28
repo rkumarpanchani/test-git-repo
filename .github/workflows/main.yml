@@ -21,7 +21,7 @@ jobs:
       #- uses: actions/checkout@v2
 
       - name: SFTP Deploy
-        uses: applyboy/ssh-action@master
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
         with:
           host: 172.19.115.33
           username: br789
