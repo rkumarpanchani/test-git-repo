@@ -23,9 +23,7 @@ jobs:
       - name: SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@v1.2.1
         with:
-          username: br789
-          server: br789@172.19.115.33
-          password: 123
+          server: 172.19.115.33
           port: 22 # default is 22 :)
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
    
